@@ -1,0 +1,21 @@
+{
+    "name": "opstalent/common",
+    "description": "PHP common tools component",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Patryk Grudniewski",
+            "email": "patgrudniewski@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-0": {
+            "Opstalent\\Common": ""
+        },
+        "psr-4": {
+            "Opstalent\\Common\\": ""
+        }
+    }
+}
