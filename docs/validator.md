@@ -19,3 +19,4 @@ services:
 ## Reference
 
 * [EntityId](validator/constraints/entity_id.md)
+* [UniqueArray](validator/constraints/unique_array.md)
