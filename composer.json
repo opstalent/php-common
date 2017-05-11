@@ -9,7 +9,11 @@
             "email": "patgrudniewski@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "doctrine/annotations": "^1.4",
+        "symfony/validator": "^3.2",
+        "doctrine/common": "^2.7"
+    },
     "autoload": {
         "psr-0": {
             "Opstalent\\Common": ""
