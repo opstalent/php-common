@@ -23,7 +23,7 @@ class InArrayValidator extends ConstraintValidator
 
         if (!in_array($needle, $constraint->values))
             $this->context->buildViolation($constraint->message)
-                ->setParameter('{{ array }}', $constraint->values)
+                ->setParameter('{{ array }}', json_encode($constraint->values))
                 ->addViolation();
     }
 }
