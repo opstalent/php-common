@@ -25,6 +25,5 @@ class InArrayValidator extends ConstraintValidator
             $this->context->buildViolation($constraint->message)
                 ->setParameter('{{ array }}', $constraint->values)
                 ->addViolation();
-
     }
 }
