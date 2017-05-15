@@ -30,7 +30,7 @@ class InArray extends Constraint
     /**
      * @var string
      */
-    public $message = 'Property not in Values';
+    public $message = 'Value not in array {{ array }}';
 
     /**
      * {@inheritdoc}
