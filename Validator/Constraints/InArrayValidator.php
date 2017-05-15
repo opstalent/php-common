@@ -17,13 +17,13 @@ class InArrayValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint)
     {
-        if($value == NULL) return;
+        if ($value == NULL) return;
         $accessor = PropertyAccess::createPropertyAccessor();
-        $needle = ($constraint->path) ? $accessor->getValue($value,$constraint->path) : $value;
+        $needle = ($constraint->path) ? $accessor->getValue($value, $constraint->path) : $value;
 
-        if(!in_array($needle,$constraint->values))
+        if (!in_array($needle, $constraint->values))
             $this->context->buildViolation($constraint->message)
-                ->->setParameter('{{ array }}', $constraint->values)
+                ->setParameter('{{ array }}', $constraint->values)
                 ->addViolation();
 
     }

@@ -44,7 +44,7 @@ class EntityIdValidator extends ConstraintValidator
      * @param EntityId $constraint
      * @return ObjectRepository
      */
-    protected function getRepository(EntityId $constraint) : ObjectRepository
+    protected function getRepository(EntityId $constraint): ObjectRepository
     {
         return $this->manager->getRepository($constraint->entity);
     }

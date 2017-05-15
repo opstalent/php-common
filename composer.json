@@ -12,7 +12,8 @@
     "require": {
         "doctrine/annotations": "^1.4",
         "symfony/validator": "^3.2",
-        "doctrine/common": "^2.7"
+        "doctrine/common": "^2.7",
+        "symfony/property-access": "3.2.*"
     },
     "autoload": {
         "psr-0": {
