@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraint;
  * @package Opstalent\Common
  *
  * @Annotation
- * @Annotation\Target(["PROPERTY","CLASS"])
+ * @Annotation\Target(["PROPERTY"])
  */
 class InArray extends Constraint
 {
@@ -38,7 +38,6 @@ class InArray extends Constraint
     public function getTargets()
     {
         return [
-            static::CLASS_CONSTRAINT,
             static::PROPERTY_CONSTRAINT
         ];
     }
