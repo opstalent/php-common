@@ -19,7 +19,6 @@ class InArrayValidator extends ConstraintValidator
     public function validate($value, Constraint $constraint)
     {
         if($value == null) return;
-        $accessor = PropertyAccess::createPropertyAccessor();
         if($value instanceof ArrayCollection) {
             $this->validateCollection($value, $constraint);
         } else {
@@ -36,6 +35,7 @@ class InArrayValidator extends ConstraintValidator
 
     public function validateProperty($value, Constraint $constraint)
     {
+        $accessor = PropertyAccess::createPropertyAccessor();
         $needle = ($constraint->path) ? $accessor->getValue($value, $constraint->path) : $value;
         if (!in_array($needle, $constraint->values)) $this->buildViolation($value, $constraint);
     }
