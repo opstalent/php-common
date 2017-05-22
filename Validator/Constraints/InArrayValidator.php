@@ -2,10 +2,10 @@
 
 namespace Opstalent\Common\Validator\Constraints;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @author Szymon Kunowski <szymon.kunowski@gmail.com>
@@ -19,14 +19,14 @@ class InArrayValidator extends ConstraintValidator
     public function validate($value, Constraint $constraint)
     {
         if($value == null) return;
-        if($value instanceof ArrayCollection) {
+        if($value instanceof Collection) {
             $this->validateCollection($value, $constraint);
         } else {
             $this->validateProperty($value, $constraint);
         }
     }
 
-    public function validateCollection(ArrayCollection $value, Constraint $constraint)
+    public function validateCollection(Collection $value, Constraint $constraint)
     {
         $value->forAll(function ($key,$item) use ($constraint) {
             $this->validateProperty($item, $constraint);
@@ -35,6 +35,8 @@ class InArrayValidator extends ConstraintValidator
 
     public function validateProperty($value, Constraint $constraint)
     {
+        dump($value);
+        dump($constraint->path);
         $accessor = PropertyAccess::createPropertyAccessor();
         $needle = ($constraint->path) ? $accessor->getValue($value, $constraint->path) : $value;
         if (!in_array($needle, $constraint->values)) $this->buildViolation($value, $constraint);
